@@ -1,7 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FC } from "react";
+import { Blog } from "../../../interfaces/Blog";
 
-const BlogItem = ({ blog }: any) => {
+type Props = {
+  blog: Blog;
+};
+
+const BlogItem: FC<Props> = ({ blog }) => {
   return (
     <div className="group">
       <div className="h-80 aspect-w-1 aspect-h-1 w-full rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-40">

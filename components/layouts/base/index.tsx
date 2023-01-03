@@ -1,9 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
+import { FC, PropsWithChildren } from "react";
 
 import { Footer, Header, Navbar } from "../../common";
 
-const BaseLayout = ({ children }: any) => {
+const BaseLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <div className="mx-auto max-w-7xl px-4 space-y-8 sm:px-6 lg:px-8">

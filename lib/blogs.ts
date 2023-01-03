@@ -2,6 +2,7 @@ import { join } from "path";
 import { Blog } from "../interfaces/Blog";
 import { getAllItems, getDir, getFileNames, getItemInPath } from "./md";
 
+// Getting the blogs data from content dir
 const BLOG_DIR = getDir("/content/blogs");
 
 const getBlogFileNames = () => {
@@ -10,6 +11,7 @@ const getBlogFileNames = () => {
 
 const getBlog = (fileName: string): Blog => {
   const blog = getItemInPath(join(BLOG_DIR, fileName)) as Blog;
+  blog.slug = fileName.replace(/\.md$/, "");
   return blog;
 };
 
