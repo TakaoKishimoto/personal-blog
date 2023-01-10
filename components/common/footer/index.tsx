@@ -1,5 +1,5 @@
 import Link from "next/link";
-import navigation from "../navbar/navigation";
+import { navigation } from "../navbar/navigation";
 
 const socialLinks = [
   {
