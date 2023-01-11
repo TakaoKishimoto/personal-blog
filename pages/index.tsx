@@ -1,13 +1,13 @@
-import type { GetStaticProps, NextPage } from "next";
-import Link from "next/link";
-import { BlogList } from "@components/blogs";
-import { PortfolioList } from "@components/portfolios";
-import { BaseLayout } from "@components/layouts";
-import { getBlogs } from "@lib/blogs";
-import { Blog } from "@interfaces/Blog";
-import { saveSearchData } from "@lib/md";
-import { getPortfolios } from "@lib/portfolios";
-import { Portfolio } from "@interfaces/Portfolio";
+import type { GetStaticProps, NextPage } from 'next';
+import Link from 'next/link';
+import { BlogList } from '@components/blogs';
+import { PortfolioList } from '@components/portfolios';
+import { BaseLayout } from '@components/layouts';
+import { getBlogs } from '@lib/blogs';
+import { Blog } from '@interfaces/Blog';
+import { saveSearchData } from '@lib/md';
+import { getPortfolios } from '@lib/portfolios';
+import { Portfolio } from '@interfaces/Portfolio';
 
 type Props = {
   blogs: Blog[];
@@ -48,7 +48,10 @@ export const getStaticProps: GetStaticProps = () => {
   saveSearchData(content);
 
   return {
-    props: { blogs, portfolios },
+    props: {
+      blogs: blogs.slice(0, 4),
+      portfolios: portfolios.slice(0, 4),
+    },
   };
 };
 

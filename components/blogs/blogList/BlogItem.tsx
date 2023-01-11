@@ -1,7 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FC } from "react";
-import { Blog } from "@interfaces/Blog";
+import Image from 'next/image';
+import Link from 'next/link';
+import { FC } from 'react';
+import { Blog } from '@interfaces/Blog';
+import { shortify } from '@lib/client/utils';
 
 type Props = {
   blog: Blog;
@@ -19,7 +20,7 @@ const BlogItem: FC<Props> = ({ blog }) => {
               objectFit="cover"
               src={blog.coverImage}
               className="rounded-lg hover:cursor-pointer"
-              alt={""}
+              alt={''}
             />
           </div>
         </Link>
@@ -28,12 +29,17 @@ const BlogItem: FC<Props> = ({ blog }) => {
         <div>
           <h3 className="text-sm text-gray-700 font-bold">
             <span aria-hidden="true" className="inset-0" />
-            {blog.title}
+            {shortify(blog.title)}
           </h3>
-          <p className="mt-1 text-sm text-gray-500">{blog.description}</p>
+          <p className="mt-1 text-sm text-gray-500">
+            {shortify(blog.description)}
+          </p>
         </div>
       </div>
-      <Link href={`/blogs/${blog.slug}`} className="text-sm font-bold text-gray-700">
+      <Link
+        href={`/blogs/${blog.slug}`}
+        className="text-sm font-bold text-gray-700"
+      >
         Read More
       </Link>
     </div>

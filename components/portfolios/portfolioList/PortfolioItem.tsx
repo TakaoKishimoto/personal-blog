@@ -1,7 +1,8 @@
-import { FC } from "react";
-import { Portfolio } from "@interfaces/Portfolio";
-import Image from "next/image";
-import Link from "next/link";
+import { FC } from 'react';
+import { Portfolio } from '@interfaces/Portfolio';
+import Image from 'next/image';
+import Link from 'next/link';
+import { shortify } from '@lib/client/utils';
 
 type Props = {
   portfolio: Portfolio;
@@ -14,17 +15,19 @@ const PortfolioItem: FC<Props> = ({ portfolio }) => {
         <Image
           layout="fill"
           src={portfolio.coverImage}
-          alt={""}
+          alt={''}
           className="h-full w-full object-cover object-center"
         />
       </div>
       <h3 className="mt-6 text-sm text-gray-500">
         <Link href={`/portfolios/${portfolio.slug}`}>
           <span className="absolute inset-0" />
-          {portfolio.title}
+          {shortify(portfolio.title)}
         </Link>
       </h3>
-      <p className="text-base font-semibold text-gray-900">{portfolio.description}</p>
+      <p className="text-base font-semibold text-gray-900">
+        {shortify(portfolio.description)}
+      </p>
     </div>
   );
 };
